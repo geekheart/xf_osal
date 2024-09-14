@@ -131,14 +131,13 @@ xf_osal_priority_t xf_osal_thread_get_priority(xf_osal_thread_t thread);
 xf_err_t xf_osal_thread_yield(void);
 xf_err_t xf_osal_thread_suspend(xf_osal_thread_t thread);
 xf_err_t xf_osal_thread_resume(xf_osal_thread_t thread);
-__NO_RETURN void xf_osal_thread_exit(void);
-xf_err_t xf_osal_thread_terminate(xf_osal_thread_t thread);
+xf_err_t xf_osal_thread_delete(xf_osal_thread_t thread);
 uint32_t xf_osal_thread_get_count(void);
 uint32_t xf_osal_thread_get_active_count(xf_osal_thread_t *thread_array, uint32_t array_items);
 
 xf_err_t xf_osal_thread_notify_set(xf_osal_thread_t thread, uint32_t notify);
 xf_err_t xf_osal_thread_notify_clear(uint32_t notify);
-xf_err_t xf_osal_thread_notify_get(void);
+uint32_t xf_osal_thread_notify_get(void);
 xf_err_t xf_osal_thread_notify_wait(uint32_t notify, uint32_t options, uint32_t timeout);
 
 xf_err_t xf_osal_delay(uint32_t ticks);
