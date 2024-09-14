@@ -35,12 +35,12 @@ typedef struct _xf_osal_semaphore_attr_t {
 
 /* ==================== [Global Prototypes] ================================= */
 
-xf_osal_semaphore_t xf_osal_semaphore_create(uint32_t max_count, uint32_t initial_count, const xf_osal_semaphore_attr_t *attr);
+xf_osal_semaphore_t xf_osal_semaphore_create(uint32_t max_count, uint32_t initial_count,
+        const xf_osal_semaphore_attr_t *attr);
 xf_err_t xf_osal_semaphore_acquire(xf_osal_semaphore_t semaphore, uint32_t timeout);
 xf_err_t xf_osal_semaphore_release(xf_osal_semaphore_t semaphore);
 uint32_t xf_osal_semaphore_get_count(xf_osal_semaphore_t semaphore);
 xf_err_t xf_osal_semaphore_delete(xf_osal_semaphore_t semaphore);
-
 
 /* ==================== [Macros] ============================================ */
 

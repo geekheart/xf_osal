@@ -30,15 +30,6 @@ extern "C" {
 #define XF_OSAL_WAIT_ALL           0x00000001U ///< Wait for all flags.
 #define XF_OSAL_NO_CLEAR           0x00000002U ///< Do not clear flags which have been specified to wait for.
 
-// Flags errors (returned by osThreadFlagsXxxx and osEventFlagsXxxx).
-#define XF_OSAL_EVENT_ERR            0x80000000U ///< Error indicator.
-#define XF_OSAL_EVENT_ERR_UNKONW     0xFFFFFFFFU ///< osError (-1).
-#define XF_OSAL_EVENT_ERR_TIMEOUT    0xFFFFFFFEU ///< osErrorTimeout (-2).
-#define XF_OSAL_EVENT_ERR_RESOURCE   0xFFFFFFFDU ///< osErrorResource (-3).
-#define XF_OSAL_EVENT_ERR_PARAMETER  0xFFFFFFFCU ///< osErrorParameter (-4).
-#define XF_OSAL_EVENT_ERR_ISR        0xFFFFFFFAU ///< osErrorISR (-6).
-#define XF_OSAL_EVENT_SAFE_CLASS     0xFFFFFFF9U ///< osErrorSafetyClass (-7).
-
 #define MAX_BITS_EVENT_GROUPS     24U
 #define XF_OSAL_EVENT_FLAGS_INVALID_BITS  (~((1UL << MAX_BITS_EVENT_GROUPS) - 1U))
 
@@ -56,10 +47,10 @@ typedef struct _xf_osal_event_attr_t {
 /* ==================== [Global Prototypes] ================================= */
 
 xf_osal_event_t xf_osal_event_create(const xf_osal_event_attr_t *attr);
-uint32_t xf_osal_event_set(xf_osal_event_t event, uint32_t flags);
-uint32_t xf_osal_event_clear(xf_osal_event_t event, uint32_t flags);
+xf_err_t xf_osal_event_set(xf_osal_event_t event, uint32_t flags);
+xf_err_t xf_osal_event_clear(xf_osal_event_t event, uint32_t flags);
 uint32_t xf_osal_event_get(xf_osal_event_t event);
-uint32_t xf_osal_event_wait(xf_osal_event_t event, uint32_t flags, uint32_t options, uint32_t timeout);
+xf_err_t xf_osal_event_wait(xf_osal_event_t event, uint32_t flags, uint32_t options, uint32_t timeout);
 xf_err_t xf_osal_event_delete(xf_osal_event_t event);
 
 /* ==================== [Macros] ============================================ */
