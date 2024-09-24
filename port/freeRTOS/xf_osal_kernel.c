@@ -13,9 +13,9 @@
 
 #include "xf_osal_internal.h"
 
-/* ==================== [Defines] =========================================== */
-
 #if XF_OSAL_KERNEL_IS_ENABLE
+
+/* ==================== [Defines] =========================================== */
 
 #define KERNEL_VERSION            (((uint32_t)(tskKERNEL_VERSION_MAJOR|0xff) * 10000000UL) | \
                                    ((uint32_t)(tskKERNEL_VERSION_MINOR|0xff) *    10000UL) | \
