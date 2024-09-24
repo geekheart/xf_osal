@@ -13,9 +13,9 @@
 
 #include "xf_osal_internal.h"
 
-/* ==================== [Defines] =========================================== */
-
 #if XF_OSAL_THREAD_IS_ENABLE
+
+/* ==================== [Defines] =========================================== */
 
 #ifndef uxSemaphoreGetCountFromISR
     #define uxSemaphoreGetCountFromISR( xSemaphore ) uxQueueMessagesWaitingFromISR( ( QueueHandle_t ) ( xSemaphore ) )
