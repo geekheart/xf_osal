@@ -45,7 +45,7 @@ const char *xf_osal_timer_get_name(xf_osal_timer_t timer)
 xf_err_t xf_osal_timer_start(xf_osal_timer_t timer, uint32_t ticks)
 {
     osStatus_t status = osTimerStart((osTimerId_t)timer, ticks);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -53,7 +53,7 @@ xf_err_t xf_osal_timer_start(xf_osal_timer_t timer, uint32_t ticks)
 xf_err_t xf_osal_timer_stop(xf_osal_timer_t timer)
 {
     osStatus_t status = osTimerStop((osTimerId_t)timer);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -66,7 +66,7 @@ uint32_t xf_osal_timer_is_running(xf_osal_timer_t timer)
 xf_err_t xf_osal_timer_delete(xf_osal_timer_t timer)
 {
     osStatus_t status = osTimerDelete((osTimerId_t)timer);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }

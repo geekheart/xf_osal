@@ -31,7 +31,7 @@ xf_err_t xf_osal_kernel_get_info(xf_osal_version_t *version, char *id_buf, uint3
 {
 #if XF_CMSIS_KERNEL_GET_INFO_IS_ENABLE
     osStatus_t status = osKernelGetInfo((osVersion_t *)version, id_buf, id_size);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 #else

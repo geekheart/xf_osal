@@ -35,7 +35,7 @@ xf_osal_mutex_t xf_osal_mutex_create(const xf_osal_mutex_attr_t *attr)
 xf_err_t xf_osal_mutex_acquire(xf_osal_mutex_t mutex, uint32_t timeout)
 {
     osStatus_t status = osMutexAcquire((osMutexId_t)mutex, timeout);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -43,7 +43,7 @@ xf_err_t xf_osal_mutex_acquire(xf_osal_mutex_t mutex, uint32_t timeout)
 xf_err_t xf_osal_mutex_release(xf_osal_mutex_t mutex)
 {
     osStatus_t status = osMutexRelease((osMutexId_t)mutex);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -56,7 +56,7 @@ xf_osal_thread_t xf_osal_mutex_get_owner(xf_osal_mutex_t mutex)
 xf_err_t xf_osal_mutex_delete(xf_osal_mutex_t mutex)
 {
     osStatus_t status = osMutexDelete((osMutexId_t)mutex);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
