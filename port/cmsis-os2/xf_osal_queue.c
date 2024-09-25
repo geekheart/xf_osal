@@ -35,7 +35,7 @@ xf_osal_queue_t xf_osal_queue_create(uint32_t msg_count, uint32_t msg_size, cons
 xf_err_t xf_osal_queue_put(xf_osal_queue_t queue, const void *msg_ptr, uint8_t msg_prio, uint32_t timeout)
 {
     osStatus_t status = osMessageQueuePut((osMessageQueueId_t) queue, msg_ptr, msg_prio, timeout);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -43,7 +43,7 @@ xf_err_t xf_osal_queue_put(xf_osal_queue_t queue, const void *msg_ptr, uint8_t m
 xf_err_t xf_osal_queue_get(xf_osal_queue_t queue, void *msg_ptr, uint8_t *msg_prio, uint32_t timeout)
 {
     osStatus_t status = osMessageQueueGet((osMessageQueueId_t) queue, msg_ptr, msg_prio, timeout);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -56,7 +56,7 @@ uint32_t xf_osal_queue_get_count(xf_osal_queue_t queue)
 xf_err_t xf_osal_queue_reset(xf_osal_queue_t queue)
 {
     osStatus_t status = osMessageQueueReset((osMessageQueueId_t) queue);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -64,7 +64,7 @@ xf_err_t xf_osal_queue_reset(xf_osal_queue_t queue)
 xf_err_t xf_osal_queue_delete(xf_osal_queue_t queue)
 {
     osStatus_t status = osMessageQueueDelete((osMessageQueueId_t) queue);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }

@@ -60,7 +60,7 @@ xf_err_t xf_osal_thread_set_priority(xf_osal_thread_t thread, xf_osal_priority_t
 {
 #if XF_CMSIS_THREAD_SET_PRIORITY_IS_ENABLE
     osStatus_t status = osThreadSetPriority((osThreadId_t)thread, (osPriority_t)priority);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 #else
@@ -77,7 +77,7 @@ xf_err_t xf_osal_thread_yield(void)
 {
 #if XF_CMSIS_THREAD_YIELD_IS_ENABLE
     osStatus_t status = osThreadYield();
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 #else
@@ -88,7 +88,7 @@ xf_err_t xf_osal_thread_yield(void)
 xf_err_t xf_osal_thread_suspend(xf_osal_thread_t thread)
 {
     osStatus_t status = osThreadSuspend((osThreadId_t)thread);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -96,7 +96,7 @@ xf_err_t xf_osal_thread_suspend(xf_osal_thread_t thread)
 xf_err_t xf_osal_thread_resume(xf_osal_thread_t thread)
 {
     osStatus_t status = osThreadResume((osThreadId_t)thread);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -104,7 +104,7 @@ xf_err_t xf_osal_thread_resume(xf_osal_thread_t thread)
 xf_err_t xf_osal_thread_delete(xf_osal_thread_t thread)
 {
     osStatus_t status = osThreadTerminate((osThreadId_t)thread);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -169,7 +169,7 @@ xf_err_t xf_osal_thread_notify_wait(uint32_t notify, uint32_t options, uint32_t 
 xf_err_t xf_osal_delay(uint32_t ticks)
 {
     osStatus_t status = osDelay(ticks);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -177,7 +177,7 @@ xf_err_t xf_osal_delay(uint32_t ticks)
 xf_err_t xf_osal_delay_until(uint32_t ticks)
 {
     osStatus_t status = osDelayUntil(ticks);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }

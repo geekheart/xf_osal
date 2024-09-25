@@ -30,14 +30,29 @@ extern "C" {
 
 /* ==================== [Macros] ============================================ */
 
-#define TRANSFORM_TO_XF_ERR(x) \
-    ((status) == osOK ? XF_OK :        \
-    (status) == osErrorTimeout ? XF_ERR_TIMEOUT : \
-    (status) == osErrorResource ? XF_ERR_RESOURCE : \
-    (status) == osErrorISR ? XF_ERR_ISR : \
-    (status) == osErrorParameter ? XF_ERR_INVALID_ARG : \
-    (status) == osErrorNoMemory ? XF_ERR_NO_MEM : \
-    (status) == osError ? XF_FAIL : XF_FAIL)
+/* ==================== [Global Functions] ================================== */
+
+static inline xf_err_t transform_to_xf_err(osStatus_t status)
+{
+    switch (status) {
+    case osOK:
+        return XF_OK;
+    case osErrorTimeout:
+        return XF_ERR_TIMEOUT;
+    case osErrorResource:
+        return XF_ERR_RESOURCE;
+    case osErrorISR:
+        return XF_ERR_ISR;
+    case osErrorParameter:
+        return XF_ERR_INVALID_ARG;
+    case osErrorNoMemory:
+        return XF_ERR_NO_MEM;
+    case osError:
+        return XF_FAIL;
+    default:
+        return XF_FAIL;
+    }
+}
 
 #ifdef __cplusplus
 } /* extern "C" */

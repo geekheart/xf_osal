@@ -36,7 +36,7 @@ xf_osal_semaphore_t xf_osal_semaphore_create(uint32_t max_count, uint32_t initia
 xf_err_t xf_osal_semaphore_acquire(xf_osal_semaphore_t semaphore, uint32_t timeout)
 {
     osStatus_t status = osSemaphoreAcquire((osSemaphoreId_t)semaphore, timeout);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -44,7 +44,7 @@ xf_err_t xf_osal_semaphore_acquire(xf_osal_semaphore_t semaphore, uint32_t timeo
 xf_err_t xf_osal_semaphore_release(xf_osal_semaphore_t semaphore)
 {
     osStatus_t status = osSemaphoreRelease((osSemaphoreId_t)semaphore);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
@@ -57,7 +57,7 @@ uint32_t xf_osal_semaphore_get_count(xf_osal_semaphore_t semaphore)
 xf_err_t xf_osal_semaphore_delete(xf_osal_semaphore_t semaphore)
 {
     osStatus_t status = osSemaphoreDelete((osSemaphoreId_t)semaphore);
-    xf_err_t err = TRANSFORM_TO_XF_ERR(status);
+    xf_err_t err = transform_to_xf_err(status);
 
     return err;
 }
